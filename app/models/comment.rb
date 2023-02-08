@@ -9,3 +9,4 @@ class Comment < ApplicationRecord
       post.increment!(:comments_counter)
     end
   end
+  
