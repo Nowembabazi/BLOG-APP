@@ -202,7 +202,7 @@ I would like to thank Microverse for providing me with the reading material that
 
 - **Can I contribute to this repository?**
 
-  - Yes. Just contact me at `djmulinde@gmail.com` and I will gladly add you as a contributor to the repository.
+  - Yes. Just contact me at `nowembabazin8@gmail.com` and I will gladly add you as a contributor to the repository.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
