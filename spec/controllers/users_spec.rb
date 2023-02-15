@@ -20,4 +20,20 @@ RSpec.describe UsersController, type: :request do
       expect(response.body).to include('List of users')
     end
   end
+
+  describe 'GET /show' do
+    before(:example) { get user_path(1) }
+
+    it 'should be a successful response' do
+      expect(response.status).to eq(200)
+    end
+
+    it 'should render the show template' do
+      expect(response).to render_template('show')
+    end
+
+    it 'response should contain #UserDetailsPage' do
+      expect(response.body).to include('User details page')
+    end
+  end
 end

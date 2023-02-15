@@ -20,4 +20,12 @@ RSpec.describe PostsController, type: :request do
       expect(response.body).to include('List of posts')
     end
   end
+
+  describe 'GET /show' do
+    before(:example) { get user_posts_path(1, 1) }
+
+    it 'should return a successful response' do
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
