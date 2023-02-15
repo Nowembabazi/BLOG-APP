@@ -1,8 +1,3 @@
-
-<div align="center">
-  <h3><b>BLOG README</b></h3>
-</div>
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -37,13 +32,12 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-
-<details>
+<!-- <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://guides.rubyonrails.org/engines.html">Embbed Ruby (ERB)</a></li>
+    <li><a href="https://reactjs.org/">React.js</a></li>
   </ul>
-</details>
+</details> -->
 
 <details>
   <summary>Server</summary>
@@ -83,8 +77,6 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
@@ -100,7 +92,7 @@ Clone this repository to your desired folder:
 ```sh
   mkdir blog-app
   cd blog-app
-  git clone git@github.com:inspecta/Blog.git
+  git clone git@github.com:Nowembabazi/Blog.git
 ```
 
 ### Install
@@ -150,9 +142,9 @@ Example:
 
 👤 **Author1**
 
-- GitHub: [@inspecta](https://github.com/Nowembabazi)
-- Twitter: [@djmulinde](https://twitter.com/NowembabaziN)
-- LinkedIn: [mulinde-derrick](https://linkedin.com/in/nowembabazi-nickson)
+- GitHub: [@Nowembabazi](https://github.com/Nowembabazi)
+- Twitter: [@NowembabaziN](https://twitter.com/NowembabaziN)
+- LinkedIn: [nowembabazi-nickson](https://linkedin.com/in/nowembabazi-nickson)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -220,6 +212,5 @@ I would like to thank Microverse for providing me with the reading material that
 
 This project is [MIT](./LICENSE) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
