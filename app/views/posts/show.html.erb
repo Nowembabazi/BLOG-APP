@@ -1,4 +1,4 @@
- <% counter = 1 %>
+<% counter = 1 %>
   <% @user.posts.each do |post| %>
   <div class="card mt-5 mb-5 --bs-dark bg-warning border border-dark-subtle" style="width: 80rem;">
     <div class='card-body'>
@@ -8,7 +8,8 @@
    </div>
   </div>
     <% counter += 1 %>
-  <% end %>
+<% end %>
+   <%# <%= link_to 'Add new comment', user_post_path(id: post.id), class: "btn btn-secondary mt-3"%>
 
    <% @post.recent_comments.each do |comment| %>
     <hr p-2>
@@ -19,3 +20,6 @@
           </p>
         </div>
       <% end %>
+<div class="text-center">
+  <%= link_to 'Create a comment', new_user_post_comment_path(@user.id, @post.id), class: "btn btn-dark center text-light m-2", style: "width: auto"%>
+</div>
