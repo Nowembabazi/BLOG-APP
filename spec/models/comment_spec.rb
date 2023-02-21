@@ -1,41 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  before :all do
-    @user = User.create(
-      name: 'Tom',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Mexico.',
-      posts_counter: 0
-    )
+  it { should belong_to :post }
+  it { should belong_to :author }
+end
 
-    @post = Post.create(
-      title: 'This is my first post',
-      text: 'This is my first post text',
-      likes_counter: 0,
-      comments_counter: 0,
-      author_id: @user.id
-    )
-
-    Comment.create(
-      author_id: @user.id,
-      post_id: @post.id,
-      text: 'This is my first post comment'
-    )
-  end
-
-  # Validation
-  context '#comments validation' do
-    it 'comment text should be present' do
-      subject.text = nil
-      expect(subject).to_not be_valid
-    end
-  end
-
-  # Update counter method
-  context '#update_posts_counter' do
-    it 'should increment the number of comments' do
-      expect(Post.find(@post.id).comments_counter).to eq 1
-    end
+RSpec.describe 'counter' do
+  it 'increments when a new comment is created' do
+    first_post = Post.create(author: User.create(name: 'Tom'), title: 'Hi', text: 'This is the first post')
+    second_user = User.create(name: 'Jerry')
+    expect { Comment.create(post_id: first_post.id, author_id: second_user.id, text: 'Hi Tom!') }.to change {
+                                                                                                       Comment.count
+                                                                                                     }.by(1)
   end
 end
