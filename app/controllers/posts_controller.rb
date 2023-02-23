@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @posts = Post.where(author_id: @user)
+    user_id = params[:user_id]
+    @user = User.includes(posts: [:comments]).find(user_id)
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
+    author_id = params[:user_id]
+    post_id = params[:id]
+    @user = User.find(author_id)
+    @post = @user.posts.includes(:comments, :likes).find(post_id)
   end
 
   def new
@@ -14,12 +16,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.author_id = current_user.id
+    @post = Post.new(author_id: current_user.id, **post_params, comments_counter: 0, likes_counter: 0)
+
     if @post.save
-      redirect_to user_posts_path(current_user)
+      flash[:success] = 'Post was successfully created.'
+      redirect_to "/users/#{@post.author_id}/posts/"
     else
-      render :new
+      flash.now[:error] = 'Oops. Something went wrong'
+      render :new, status: :unprocessable_entity
     end
   end
 
