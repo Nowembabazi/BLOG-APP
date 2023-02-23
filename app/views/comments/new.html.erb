@@ -1,4 +1,21 @@
-<%= form_with model: @comment, url: user_post_comments_path, method: :post, local: true, scope: :comment do |form| %>
-  <%= form.text_field :text, placeholder: 'Add Comments', class: "form-control form-control-lg mt-3" %>
-  <%= form.submit "Create comment", class: "btn btn-dark center text-light m-2" %>
-<% end %>
+<div class="add-new-comment">
+  <h3>Add comments</h3>
+
+  <%= form_with model: @comment, url: user_post_comments_path do |form| %>
+    <div>
+      <%= form.label :comment %><br/>
+      <%= form.text_area :text, required: true %>
+
+      <ul>
+      <% @post.errors.full_messages_for(:text).each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    </div>
+
+    <div>
+      <%= form.submit "Submit" %>
+    </div>
+
+  <% end %>
+</div>

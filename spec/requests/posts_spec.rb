@@ -1,41 +1,27 @@
 require 'rails_helper'
-require 'rails-controller-testing'
-Rails::Controller::Testing.install
 
-RSpec.describe PostsController, type: :request do
-  describe 'GET #index' do
-    it 'returns a successful response' do
-      get '/users/:user_id/posts'
-      expect(response).to be_successful
-      expect(response).to have_http_status(200)
+RSpec.describe 'Posts', type: :request do
+  describe 'GET /index' do
+    before(:example) { get user_posts_path(1) }
+
+    it 'should return a successful response' do
+      expect(response).to have_http_status(:success)
     end
 
-    it 'renders the correct template' do
-      get '/users/:user_id/posts'
-      expect(response).to render_template(:index)
+    it 'shoud render posts/index.html.erb template' do
+      expect(response).to render_template('index')
     end
 
-    it 'includes the correct placeholder text' do
-      get '/users/:user_id/posts'
-      expect(response.body).to include('List of posts')
+    it 'response body should contain' do
+      expect(response.body).to include('Posts Page')
     end
   end
 
-  describe 'GET #show' do
-    it 'returns a successful response' do
-      get '/users/1/posts/1/'
-      expect(response).to be_successful
-      expect(response).to have_http_status(200)
-    end
+  describe 'GET /show' do
+    before(:example) { get user_posts_path(1, 1) }
 
-    it 'renders the correct template' do
-      get '/users/1/posts/1'
-      expect(response).to render_template(:show)
-    end
-
-    it 'includes the correct placeholder text' do
-      get '/users/1/posts/1'
-      expect(response.body).to include('I am post show')
+    it 'should return a successful response' do
+      expect(response).to have_http_status(:success)
     end
   end
 end

@@ -1,56 +1,25 @@
-<section class="container">
-<div class="row mb-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded d-flex" style="width: auto;">
-     <div class="col m-4", style="width: 15rem; heigth: 15rem;">
-      <% if @user.photo %>
-        <img src="<%= @user.photo %>" class="rounded float-start" alt="...">
-      <% else %>
-          <p> No image found </p>
-      <% end %>
-     </div>
-    <div class="col-md-8">
-      <div class='card-body'>
-        <h1 class="card-title text-decoration-none mt-4"><%= @user.name %></h1>  
-        <h6 class="card-text ,t-2">Number of posts: <span><%= @user.PostCounter %></span></h6>
-       </div>
-    </div>
-  </div>
-<% counter = 1 %>
-  <% @posts.each do |post| %>
-  <div class="card mt-5  --bs-dark bg-warning border border-dark-subtle" style="width: 80rem;">
-    <div class='card-body'>
-    <h6 class='card-text text-light text-end'>Comments: <%= post.CommentsCounter%> Likes: <%= post.LikesCounter %></h6>
-      <h3 class="card-title text-light">Post #<%= counter %></h3>
-      <h4 class="mb-5 mt-5"><%= post.title %></h4>
-      
-      <h6><%= post.text %></h6>
-      <div class="display flex">
-      <%= link_to 'Create new post', new_user_post_path(@user), class: "btn btn-dark mt-5 mb-0 text-light mr-5"%><br>
-      <%= link_to 'All comments', user_post_path(id: post.id), class: "btn btn-dark mt-5 mb-0 center text-light mr-5", style: "width: auto"%>
-      <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes", class: 'like_button' do |form| %>
-      <%= form.submit "Like Post", class: "btn btn-dark mt-5 mb-0 center text-light" %>
-      </div>
-      <% end %>
-      
-      
-   </div>
-     <% counter += 1 %>
-    <% post.recent_comments.each do |comment| %>
-    <hr p-2>
-        <div class="card-body">
-          <p>
-            <strong><%= comment.author.name %>:</strong>
-            <span><%= comment.text %></span>
-          </p>
-          
-        </div>
-      <% end %>
-  </div>
-  <div class="text-center">
+<div class="user-specific-post">
+  <%= render partial: "users/user_info", locals: {user: @user} %>
 
+  <div class="post-info">
+    <% @user.posts.each do |post| %>
+      <%= render partial: "users/user_post_card", locals: {post: post} %>
+
+      <div class="comments border">
+        <% post.most_recent_comments.each do |comment| %>
+          <p><%= comment.author.name %>: <%= comment.text %></p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
- 
-  <% end %>
-  
-  
-  </section>
-     
+</div>
+
+<div>
+  <p>Add a new post</p>
+  <%= link_to 'Add New', new_user_post_url(@user) %>
+</div>
+
+<div>
+    <p class="pagination">Pagination</p>
+</div>
+
