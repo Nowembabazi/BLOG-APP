@@ -146,6 +146,12 @@ Example:
 - Twitter: [@NowembabaziN](https://twitter.com/NowembabaziN)
 - LinkedIn: [nowembabazi-nickson](https://linkedin.com/in/nowembabazi-nickson)
 
+👤 **Author2**
+
+- GitHub: [@Ngufor-emmanuella](https://github.com/Ngufor-emmanuella)
+- Twitter: [@Ngufor-emmanuella](https://twitter.com/Ngufor-emmanuella)
+- LinkedIn: [Ngufor-emmanuella](https://linkedin.com/in/Ngufor-emmanuella)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
