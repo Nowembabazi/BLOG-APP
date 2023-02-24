@@ -150,9 +150,9 @@ Example:
 
 👤 **Author1**
 
-- GitHub: [@inspecta](https://github.com/Nowembabazi)
-- Twitter: [@djmulinde](https://twitter.com/NowembabaziN)
-- LinkedIn: [mulinde-derrick](https://linkedin.com/in/nowembabazi-nickson)
+- GitHub: [@Nowembabazi](https://github.com/Nowembabazi)
+- Twitter: [@Nowembabazi](https://twitter.com/NowembabaziN)
+- LinkedIn: [nickson-nickson](https://linkedin.com/in/nowembabazi-nickson)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
